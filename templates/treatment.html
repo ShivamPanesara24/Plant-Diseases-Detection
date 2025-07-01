@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>plant diseases ditection</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">  
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="static/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="static\css\bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="static\css\style.css" rel="stylesheet">
+    <style>  
+    /* General Styling */
+
+/* Header Styling */
+.treat-container p {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+/* Container Styling */
+.treat-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.treat-container h1 {
+    color: #164300;
+    margin-bottom: 20px;
+    font-size: 36px;
+}
+
+/* Search Bar */
+.search-container {
+    margin-bottom: 20px;
+}
+
+.search-input {
+    padding: 12px;
+    width: 320px;
+    border: 2px solid #1a430c;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-input:focus {
+    border-color: #1c3b00;
+    box-shadow: 0px 0px 8px rgba(78, 158, 28, 0.5);
+}
+
+/* General Card Container */
+.treat-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    justify-items: center;
+}
+
+/* Card Styling */
+.disease-card,
+.treat-disease-card {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    height: 450px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+    background-color: #f4f9f4;
+}
+
+/* Card Hover Effect (Expand and Show Details) */
+.disease-card:hover,
+.treat-disease-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Image */
+.disease-card img,
+.treat-disease-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+/* Title Styling */
+.disease-card h3,
+.treat-disease-card h3 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #d84315;
+    margin: 15px 0;
+}
+
+/* Card Description */
+.disease-card p,
+.treat-disease-card p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+    height: 80px;
+    overflow: hidden;
+}
+
+/* Button Styling */
+.disease-card a,
+.treat-disease-card a {
+    display: inline-block;
+    padding: 12px 18px;
+    background: #21600e;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.disease-card a:hover,
+.treat-disease-card a:hover {
+    background: #31c41b;
+    transform: scale(1.1);
+}
+
+.disease-card:hover,
+.treat-disease-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Styling */
+.disease-card img,
+.treat-disease-card img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 15px;
+}
+
+.disease-card:hover img,
+.treat-disease-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Title Styling */
+.disease-card h3,
+.treat-disease-card h3 {
+    margin: 10px 0;
+    color: #d84315;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Paragraph Styling */
+.disease-card p,
+.treat-disease-card p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Button Styling */
+.disease-card a,
+.treat-disease-card a {
+    display: inline-block;
+    padding: 12px 18px;
+    background: #21600e;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.disease-card a:hover,
+.treat-disease-card a:hover {
+    background: #31c41b;
+    transform: scale(1.1);
+}
+
+/* Language Buttons */
+.language-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.language-buttons button {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #28a745, #218838);
+    color: white;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.language-buttons button:hover {
+    background: linear-gradient(135deg, #218838, #1e7e34);
+    transform: scale(1.05);
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.language-buttons button:active {
+    transform: scale(0.98);
+    box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+</style>
+
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark text-light px-0 py-2">
+        <div class="row gx-0 d-none d-lg-flex">
+            <div class="col-lg-7 px-5 text-start">
+                <div class="h-100 d-inline-flex align-items-center me-4">
+                    <span class="fa fa-phone-alt me-2"></span>
+                    <span>+91 9112391123</span>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center">
+                    <span class="far fa-envelope me-2"></span>
+                    <span>plant@gmail.com</span>
+                </div>
+            </div>
+            <div class="col-lg-5 px-5 text-end">
+                <div class="h-100 d-inline-flex align-items-center mx-n2">
+                    <span>Follow Us:</span>
+                    <a class="btn btn-link text-light" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-link text-light" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-link text-light" href=""><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
+        <a href="{{ url_for('home') }}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <img src="static\img\plant doctor.png" alt="Logo" style="height: 80px; width: 80px; border-radius: 60%; object-fit: cover; margin-right: 5px;">
+            <h1 class="m-0">Plant Doctor</h1>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="{{ url_for('home') }}" class="nav-item nav-link active">Home</a>
+                <a href="{{ url_for('about') }}" class="nav-item nav-link">About</a>
+                <a href="{{ url_for('services') }}" class="nav-item nav-link">Services</a>
+                <a href="{{ url_for('predict') }}" class="nav-item nav-link">Predict</a>
+                <a href="{{ url_for('fertilizer') }}" class="nav-item nav-link">Fertilizer</a>
+                <a href="{{ url_for('treatment') }}" class="nav-item nav-link">Treatment</a>
+                <a href="{{ url_for('contact') }}" class="nav-item nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Navbar End -->
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center py-5">
+            <h1 class="display-3 text-white mb-4 animated slideInDown">Treatment</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li class="breadcrumb-item"><a href="{{ url_for('home') }}">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Treatment</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Team Start -->
+
+    <div class="treat-container">
+        <h1>Plant Disease Treatment Guide</h1>
+        <p>Find out what treatment each plant needs!</p>
+    
+        <div class="language-buttons">
+            <button onclick="translateCards('en')">English</button>
+            <button onclick="translateCards('hi')">हिन्दी</button>
+            <button onclick="translateCards('gu')">ગુજરાતી</button>
+        </div>
+    
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search for a disease...">
+        </div>
+    
+        <div class="treat-card-container">
+            <div class="disease-card">
+                <img src="static\img\treat.JPG" alt="Apple Scab">
+                <h3 class="title" data-en="Apple Scab" data-hi="एप्पल स्कैब" data-gu="એપલ સ્કેબ">Apple Scab</h3>
+                <p class="description" 
+                    data-en="Apple Scab is a fungal disease caused by Venturia inaequalis. It infects leaves, fruits, and young shoots, leading to dark, scaly lesions, premature leaf drop, and reduced fruit quality."
+                    data-hi="एप्पल स्कैब एक कवक रोग है जो वेंटुरिया इनइक्वालिस के कारण होता है। यह पत्तियों, फलों और नई शाखाओं को संक्रमित करता है, जिससे काले, खुरदरे धब्बे, पत्तों का जल्दी गिरना और फलों की गुणवत्ता में कमी आती है।"
+                    data-gu="એપલ સ્કેબ એ એક ફૂગજન્ય રોગ છે જે વેન્ટુરિયા ઇનઇક્વાલિસ દ્વારા થાય છે. તે પાંદડા, ફળો અને નાની ડાળીઓને સંક્રમિત કરે છે, જે કાળા, ખમિરધારા જેવા ચટકા, વહેલું પાન ખસવું અને ફળોની ગુણવત્તા ઘટાડે છે.">
+                    Apple Scab is a fungal disease caused by Venturia inaequalis. It infects leaves, fruits, and young shoots, leading to dark, scaly lesions, premature leaf drop, and reduced fruit quality.
+                </p>
+                <a href="{{ url_for('scab') }}">More Details</a>
+            </div>
+    
+            <div class="treat-disease-card">
+                <img src="static\img\treat.JPG" alt="Apple Cedar Rust">
+                <h3 class="title" data-en="Apple Cedar Rust" data-hi="एप्पल सीडर रस्ट" data-gu="એપલ સીદાર રસ્ટ">Apple Cedar Rust</h3>
+                <p class="description" 
+                    data-en="Apple Cedar Rust is a fungal disease caused by Gymnosporangium juniperi-virginianae. It affects apple trees and junipers, causing orange spots on leaves and fruit, leading to defoliation and reduced yield."
+                    data-hi="एप्पल सीडर रस्ट एक कवक रोग है जो जिम्नोस्पोरेंजियम जुनिपेरी-वर्जिनियाने के कारण होता है। यह सेब के पेड़ों और जुनिपर को प्रभावित करता है, जिससे पत्तियों और फलों पर नारंगी धब्बे हो जाते हैं, जो पत्तों के गिरने और पैदावार में कमी का कारण बनते हैं।"
+                    data-gu="એપલ સીદાર રસ્ટ એ એક ફૂગજન્ય રોગ છે જે જિમ્નોસ્પોરાંજિયમ જુનિપેરી-વર્જિનિયાને દ્વારા થાય છે. તે એપલ વૃક્ષો અને જુનિપરને અસર કરે છે, જે પાંદડાં અને ફળો પર નારંગી ધબ્બા પેદા કરે છે, જે પાંદડાંના પતન અને ઉત્પાદન ઘટાડવાનું કારણ બને છે.">
+                    Apple Cedar Rust is a fungal disease caused by Gymnosporangium juniperi-virginianae. It affects apple trees and junipers, causing orange spots on leaves and fruit, leading to defoliation and reduced yield.
+                </p>
+                <a href="{{ url_for('cedar') }}">More Details</a>
+            </div>
+    
+            <div class="treat-disease-card">
+                <img src="static\img\treat.JPG" alt="Black Rot">
+                <h3 class="title" data-en="Black Rot" data-hi="ब्लैक रॉट" data-gu="બ્લેક રોટ">Black Rot</h3>
+                <p class="description" 
+                    data-en="Black Rot is a fungal disease caused by Botryosphaeria obtusa. It affects apple trees, leading to circular brown spots on leaves, shriveled fruit, and cankers on branches."
+                    data-hi="ब्लैक रॉट एक कवक रोग है जो बोट्रियोस्फेरिया ओब्टूसा के कारण होता है। यह सेब के पेड़ों को प्रभावित करता है, जिससे पत्तियों पर गोल भूरे धब्बे, सिकुड़े हुए फल और शाखाओं पर कैंकर बनते हैं।"
+                    data-gu="બ્લેક રોટ એ એક ફૂગજન્ય રોગ છે જે બોટ્રિઓસ્ફેરિયા ઓબ્ટૂસા દ્વારા થાય છે. તે એપલ વૃક્ષોને અસર કરે છે, જેના કારણે પાંદડાં પર ગોળી ભૂરા ધબ્બા, સુકાઈ ગયેલા ફળ અને ડાળીઓ પર કેન્કર થાય છે.">
+                    Black Rot is a fungal disease caused by Botryosphaeria obtusa. It affects apple trees, leading to circular brown spots on leaves, shriveled fruit, and cankers on branches.
+                </p>
+                <a href="{{ url_for('black') }}">More Details</a>
+            </div>
+   </div>
+    </div>
+    <!-- Team End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Our Office</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Gandhinagar</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 91123 91123</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>plant@gmail.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Services</h4>
+                    <a class="btn btn-link" href="{{ url_for('predict') }}">Disease Diagnosis</a>
+                    <a class="btn btn-link" href="{{ url_for('treatment') }}">Treatment Recommendations</a>
+                    <a class="btn btn-link" href="{{ url_for('fertilizer') }}">Fertilizer Suggestions</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="{{ url_for('about') }}">About Us</a>
+                    <a class="btn btn-link" href="{{ url_for('contact') }}">Contact Us</a>
+                    <a class="btn btn-link" href="{{ url_for('services') }}">Our Services</a>
+                    <a class="btn btn-link" href="{{ url_for('contact') }}">Support</a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a>Plant Doctor</a>, All Right Reserved.
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    Designed By team codex</a> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="static\lib\wow\wow.min.js"></script>
+    <script src="static\lib\easing\easing.min.js"></script>
+    <script src="static\lib\waypoints\waypoints.min.js"></script>
+    <script src="static\lib\owlcarousel\owl.carousel.min.js"></script>
+    <script src="static\lib\counterup\counterup.min.js"></script>
+    <script src="static\lib\parallax\parallax.min.js"></script>
+    <script src="static\lib\isotope\isotope.pkgd.min.js"></script>
+    <script src="static\lib\lightbox\js\lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="static\js\main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById('searchInput').addEventListener('input', function () {
+                let input = this.value.toLowerCase(); // Get search input value
+                let cards = document.querySelectorAll('.treat-disease-card, .disease-card'); // Select all disease cards
+    
+                cards.forEach(card => {
+                    let title = card.querySelector('h3').innerText.toLowerCase(); // Get the card title text
+    
+                    if (title.includes(input)) {
+                        card.style.display = "block"; // Show matching card
+                    } else {
+                        card.style.display = "none"; // Hide non-matching card
+                    }
+                });
+            });
+        });
+        function translateCards(language) {
+        let titles = document.querySelectorAll(".title");
+        let descriptions = document.querySelectorAll(".description");
+
+        titles.forEach(title => {
+            title.innerText = title.getAttribute(`data-${language}`);
+        });
+
+        descriptions.forEach(desc => {
+            desc.innerText = desc.getAttribute(`data-${language}`);
+        });
+    }
+    </script>
+    
+</body>
+
+</html>
